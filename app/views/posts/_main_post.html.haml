@@ -1,24 +1,68 @@
-.main_post
-  /%p#notice= notice
-  %h1 Posts
-  %table
-    %thead
-      %tr
-        %th Name
-        %th Text
-        %th Image
-        %th{:colspan => "3"}
-    %tbody
-      - @posts.each do |post|
+.header
+  %h1 Fashionista
+.container
+  .side-bar
+    .side-bar__keyword
+      %h2 人気キーワード
+      %ul.side-bar__keyword__lists
+        %li.list
+          = link_to '冬物コーデ', '#'
+        %li.list
+          = link_to '春アイテム', '#'
+        %li.list
+          = link_to 'コート', '#'
+        %li.list
+          = link_to '小物', '#'
+    .side-bar__itemSearch
+      %h2 アイテム検索
+      %ul.side-bar__itemSearch__lists
+        %li.list
+          = link_to 'カテゴリ一覧', '#'
+        %li.list
+          = link_to 'ブランド一覧', '#'
+        %li.list
+          = link_to 'ランキング', '#'
+        %li.list
+          = link_to '新着アイテム', '#'
+    .side-bar__category
+      %h2 カテゴリ
+      .side-bar__category__lists
+        %p.side-bar__category__lists__ladies
+          レディース
+          %ul.side-bar__category__lists__ladies__lists
+            %li.list
+              = link_to 'トップス', '#'
+            %li.list
+              = link_to 'アウター', '#'
+        %p.side-bar__category__lists__mens
+          メンズ
+          %ul.side-bar__category__lists__mens__lists
+            %li.list
+              = link_to 'トップス', '#'
+            %li.list
+              = link_to 'アウター', '#'
+        
+  .main-post
+    /%p#notice= notice
+    %h1 Posts
+    %table
+      %thead
         %tr
-          %td= post.name
-          %td= post.text
-          %td= post.image
-          %td= link_to 'Show', post
-          %td= link_to 'Edit', edit_post_path(post)
-          %td= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }
-  %br/
-  = link_to 'New Post', new_post_path
+          %th Name
+          %th Text
+          %th Image
+          %th{:colspan => "3"}
+      %tbody
+        - @posts.each do |post|
+          %tr
+            %td= post.name
+            %td= post.text
+            %td= post.image
+            %td= link_to 'Show', post
+            %td= link_to 'Edit', edit_post_path(post)
+            %td= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }
+    %br/
+    = link_to 'New Post', new_post_path
 
 
 
